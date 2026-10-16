@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Novo livro{% endblock %}
+
+{% block content %}
+    <h1>Novo livro</h1>
+    <form method="post" action="{{ url_for('novo_livro') }}">
+        <label>Título</label>
+        <input type="text" name="titulo" required>
+
+        <label>Usuário</label>
+        <select name="user_id" required>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.id }}">{{ usuario.nome }}</option>
+            {% else %}
+                <option value="">Cadastre um usuário primeiro</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

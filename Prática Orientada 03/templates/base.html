@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('novo_usuario_form') }}">Novo usuário</a>
+        <a href="{{ url_for('novo_livro_form') }}">Novo livro</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

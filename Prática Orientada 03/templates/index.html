@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Biblioteca{% endblock %}
+
+{% block content %}
+    <h1>Biblioteca</h1>
+
+    <h2>Usuários</h2>
+    <ul>
+        {% for usuario in usuarios %}
+            <li>{{ usuario.nome }} - {{ usuario.email }}</li>
+        {% else %}
+            <li>Nenhum usuário cadastrado.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Livros</h2>
+    <ul>
+        {% for livro in livros %}
+            <li>{{ livro.titulo }} — Usuário: {{ livro.user.nome if livro.user else 'Sem usuário' }}</li>
+        {% else %}
+            <li>Nenhum livro cadastrado.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
